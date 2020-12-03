@@ -10,9 +10,9 @@ public class Day1
         {
             output = output * item;
         }
-        Console.Write(String.Join(" x ", items));
-        Console.Write(" = ");
-        Console.WriteLine(output);
+        // Console.Write(String.Join(" x ", items));
+        // Console.Write(" = ");
+        // Console.WriteLine(output);
         return output;
     }
     public static int Task2(List<int> input)
@@ -23,9 +23,17 @@ public class Day1
         {
             output = output * item;
         }
-        Console.Write(String.Join(" x ", items));
-        Console.Write(" = ");
-        Console.WriteLine(output);
+        // Console.Write(String.Join(" x ", items));
+        // Console.Write(" = ");
+        // Console.WriteLine(output);
         return output;
+    }
+
+    public static void Run(string file){
+        var input = Input.ReadInts(file);
+        Console.Write("Task 1: ");
+        Console.WriteLine(Day1.Task1(input));
+        Console.Write("Task 2: ");
+        Console.WriteLine(Day1.Task2(input));
     }
 }
