@@ -23,32 +23,7 @@ public class a2021_Day1
         {
             ws[i] = input[i] + input[i+1] + input[i+2];
         }
-
         return Task1(ws);
-    }
-    public static long Task2_old(List<string> input)
-    {
-
-        var windowSums = new Dictionary<string, int>();
-        foreach (var row in input)
-        {
-            var arr = row.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 1; i < arr.Length; i++)
-            {
-                var s = Int32.Parse(arr[0]);
-                if (!windowSums.ContainsKey(arr[i]))
-                    windowSums[arr[i]] = 0;
-                windowSums[arr[i]] += s;
-            }
-        }
-        List<int> ws = new List<int>();
-        var wsKeysList = windowSums.Keys.ToList();
-        wsKeysList.Sort();
-        foreach (var w in wsKeysList)
-        {
-            ws.Add(windowSums[w]);
-        }
-        return Task1(ws.ToArray());
     }
 
     public static void Run(string file)
