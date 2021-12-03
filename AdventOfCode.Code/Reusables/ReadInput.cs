@@ -35,6 +35,16 @@ public class Input
         return input;
     }
 
+    public static List<string[]> ReadCSV(string filename, string separator)
+    {
+        var lines = System.IO.File.ReadAllLines(filename);
+        var input = new List<string[]>();
+        foreach (var line in lines)
+        {
+            input.Add(line.Split(separator));
+        }
+        return input;
+    }
     public static List<dynamic> ReadObjectsArray(string filename)
     {
         var text = System.IO.File.ReadAllText(filename);
