@@ -78,4 +78,30 @@ public class Input
         }
         return input;
     }
+    public static List<List<int[]>> ReadIntArraysAndMatrixes(string filename, char[] valuesSeparators)
+    {
+        var text = System.IO.File.ReadAllText(filename);
+        text = text.Replace("\n\n", "^").Replace("\n", "\t");
+        // Console.WriteLine(text);
+        var input = new List<List<int[]>>();
+        foreach (var line in text.Split('^'))
+        {
+            var o = new List<int[]>();
+            foreach (var l in line.Split('\t'))
+            {
+                var ll = new List<int>();
+                foreach (var v in l.Split(valuesSeparators))
+                {
+                    int x;
+                    if (!Int32.TryParse(v, out x))
+                        Console.Write(".");
+                    else
+                        ll.Add(Int32.Parse(v));
+                }
+                o.Add(ll.ToArray());
+            }
+            input.Add(o);
+        }
+        return input;
+    }
 }
