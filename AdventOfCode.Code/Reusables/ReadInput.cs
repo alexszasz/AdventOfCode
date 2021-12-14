@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Input
 {
@@ -62,6 +63,20 @@ public class Input
                     obj.Add(p[0], p[1]);
             }
             input.Add(obj);
+        }
+        return input;
+    }
+    public static List<int[]> ReadDigitArrays(string filename)
+    {
+        var text = System.IO.File.ReadAllText(filename);
+        //text = text.Replace("\n\n", "^").Replace("\n", "\t");
+        // Console.WriteLine(text);
+        var input = new List<int[]>();
+        foreach (var line in text.Split("\n"))
+        {
+            var v = line.ToCharArray();
+            if (v.Length > 0)
+                input.Add(v.Select(a => {return int.Parse(a.ToString());}).ToArray());
         }
         return input;
     }
